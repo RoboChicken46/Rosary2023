@@ -3,10 +3,10 @@ package frc.robot;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import friarLib2.vision.LimelightCamera;
-import friarLib2.vision.PhotonCameraWrapper;
-import friarLib2.vision.IVisionCamera;
-import friarLib2.vision.utility.PixelToAngle;
+import frc.robot.vision.IVisionCamera;
+import frc.robot.vision.LimelightCamera;
+import frc.robot.vision.PhotonCameraWrapper;
+import frc.robot.vision.utility.PixelToAngle;
 
 
 /**

@@ -10,8 +10,6 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import frc.robot.Swerve.SwerveCANIDs;
-import friarLib2.utility.PIDParameters;
 
 /**
 * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -27,43 +25,24 @@ public final class Constants {
     /**
     *  For Constants that are not in a subsystem
     */
-    
-    public static final double JOYSTICK_DEADBAND = 0.09; // TODO a lot of the constants in this file are placeholders, remainder to change them
-    public static final double XBOX_DEADBAND = 0.05;
-    
     public static final int PCM_CAN_ID = 1;
     public static final int PIGEON_IMU_ID = 19;
     
     public static final PneumaticsModuleType PCM_TYPE= PneumaticsModuleType.REVPH;
 
     /**
-    * Constants for the Drivetrain
+    * Constants for the Drivetrain //TODO: This is merely a template. A lot of this you will have to figure out yourself
     */
     public static class Drive {
         /********** CAN ID's **********/
-        public static final SwerveCANIDs FRONT_LEFT_MODULE_IDS = new SwerveCANIDs(32, 36, 61);
-        public static final SwerveCANIDs FRONT_RIGHT_MODULE_IDS = new SwerveCANIDs(33, 37, 62);
-        public static final SwerveCANIDs BACK_LEFT_MODULE_IDS = new SwerveCANIDs(34, 39, 60);
-        public static final SwerveCANIDs BACK_RIGHT_MODULE_IDS = new SwerveCANIDs(35, 38, 59);
         
         /********** Module Translations **********/
-        public static final Translation2d FRONT_LEFT_MODULE_TRANSLATION = new Translation2d(0.34671, 0.23241);
-        public static final Translation2d FRONT_RIGHT_MODULE_TRANSLATION = new Translation2d(0.34671, -0.23241);
-        public static final Translation2d BACK_LEFT_MODULE_TRANSLATION = new Translation2d(-0.34671, 0.23241);
-        public static final Translation2d BACK_RIGHT_MODULE_TRANSLATION = new Translation2d(-0.34671, -0.23241);
         
         /********** Autonomous Motion Envelope **********/
         public static final double MAX_AUTON_SPEED = 2; // Meters/second
         public static final double MAX_AUTON_ACCELERATION = 2.5; // Meters/second squared
-        public static final double MAX_AUTON_ANGULAR_SPEED = 400; // Degrees/second
-        public static final double MAX_AUTON_ANGULAR_ACCELERATION = 200; // Degrees/second squared
-        
+       
         /********** Holonomic Controller Gains **********/
-        public static final PIDConstants HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS = new PIDConstants(4, .75,0.5);
-        public static final PIDConstants HOLONOMIC_CONTROLLER_PID_ROTATIONAL_CONSTRAINTS = new PIDConstants(5, 0,0);
-        public static final PIDController HOLONOMIC_CONTROLLER_PID_X = new PIDController(HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kP, HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kI,HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kD);
-        public static final PIDController HOLONOMIC_CONTROLLER_PID_Y = new PIDController(HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kP, HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kI,HOLONOMIC_CONTROLLER_PID_XY_CONSTRAINTS.kD);
-        public static final ProfiledPIDController HOLONOMIC_CONTROLLER_PID_THETA = new ProfiledPIDController(HOLONOMIC_CONTROLLER_PID_ROTATIONAL_CONSTRAINTS.period, HOLONOMIC_CONTROLLER_PID_ROTATIONAL_CONSTRAINTS.kI, HOLONOMIC_CONTROLLER_PID_ROTATIONAL_CONSTRAINTS.period, new TrapezoidProfile.Constraints(MAX_AUTON_ANGULAR_SPEED, MAX_AUTON_ANGULAR_ACCELERATION));
         
         /******** PID Gains ********/
         public static final PIDController VISION_AIM_PID = new PIDController(0.3, 0, 0);
@@ -82,59 +61,6 @@ public final class Constants {
 
         public static final double CHARGE_STATION_TILT_ANGLE_THRESHOLD = 0.5;
 
-    }
-    
-    /**
-     * Constants for the Arm
-     */
-    public static class Arm {
-        /********** CAN ID's **********/
-        public static final int AB_MOTOR_ID = 9;
-        public static final int BC_MOTOR_ID = 10;
-        
-        /******** PID Gains ********/
-        public static final PIDParameters MOTOR_A_PID_GAINS = new PIDParameters(0, 0, 0, "Joint A Motor PID");
-        public static final PIDParameters MOTOR_B_PID_GAINS = new PIDParameters(0, 0, 0, "Joint B Motor PID");
-        
-        /******** Gear Ratios ********/
-        public static final double JOINT_A_MOTOR_GEAR_RATIO = 1.0;
-        public static final double JOINT_B_MOTOR_GEAR_RATIO = 1.0;
-        
-        /******** Misc ********/
-        public static final double TargetThreshold = 10;
-
-        /********** Solenoid PCM Ports **********/
-        public static final int CLAMP_SOLENOID_ID = 1;
-    }
-
-    /* 
-     * Constants for the Intake
-    */
-    public static class Intake {
-        /********** CAN ID's **********/
-        public static final int TOP_INTAKE_MOTOR_ID = 4;
-        public static final int BOTTOM_INTAKE_MOTOR_ID = 3;
-
-        /********** Tuning Constants **********/
-        public static final double TOP_INTAKE_MOTOR_POWER = 1;
-        public static final double BOTTOM_INTAKE_MOTOR_POWER = 2;
-    }
-
-    /*
-     * Constants for the Turntable
-     */
-    public static class Turntable {
-        /********** CAN ID's **********/
-        public static final int TURNTABLE_MOTOR_ID = 5;
-
-        /********** Tuning Constants **********/
-        public static final double TURNTABLE_MOTOR_POWER = 1;
-        public static final double TURNTABLE_DEFAULT_DEGREES = 0;
-
-        /********** Rotating Constnats **********/
-        public static final double TURNATABLE_DEFAULT_POSITION = 0;
-        
-       
     }
 }
 

@@ -1,4 +1,4 @@
-/*Can be reused if we use the same IMU */
+//TODO: THIS CODE WILL ONLY BE USEFUL IF YOU ARE USING the PIGEONIMU 1.0
 package frc.robot;
 
 import com.ctre.phoenix.sensors.PigeonIMU;
